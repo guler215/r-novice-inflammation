@@ -1,0 +1,83 @@
+---
+title: "r-novice-inflammation"
+author: "Joseph Guler"
+date: "2022-12-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+read.csv("data/data/inflammation-01.csv")
+# package(readr)
+library(readr)
+
+data01 <- read.csv("data/data/inflammation-01.csv", header = FALSE, sep = ',')
+```
+
+## Manipulate Data: Class & Dimensions
+
+```{r data01}
+# Data Type 
+class(data01)
+# Data Dimensions
+dim(data01)
+```
+## Manipulate Data: Extraction 
+```{r data01}
+# First Ten Days, First Four Patients
+data01[c(1:4),c(1:10)]
+```
+## Manipulate Data: Extraction
+```{r}
+# First Ten Days, Patients 5-10
+data01[c(5:10),c(1:10)]
+```
+
+## Manipulate Data: Column Statistics and Numeric Output
+
+```{r data01}
+# First Patient, All Days
+patient_1 <- data01[1, ]
+# Max inflammation for Patient 1
+max(patient_1)
+# Sum inflammation for Patient 1
+sum(patient_1)
+# Max inflammation for Patient 1
+max(data01[1, ])
+# Min inflammation for Patient 2 on day 7
+min(data01[2,7])
+# Numeric Reading 
+max(data01[1, ])
+# Numeric Reading as.numeric
+mean(as.numeric(data01[1, ]))
+```
+
+## Average Patient & Day Plots
+
+```{r data01, echo=FALSE}
+# Create Avg. Patient Value 
+avg_patient_inflammation <- apply(data01,1,mean)
+# Create Avg. Day Value
+avg_day_inflammation <- apply(data01,2,mean)
+# Plot Avg. Day Values 
+plot(avg_day_inflammation)
+```
+
+## Max Day Plot 
+
+```{r data01, echo=FALSE}
+# Create Max Day Value 
+max_day_inflammation <- apply(data01,2,max)
+# Plot Max Day Value 
+plot(max_day_inflammation)
+```
+
+## Min Day Plot
+
+```{r, data01, echo=FALSE}
+# Create Min Day Value 
+min_day_inflammation <- apply(data01,2,min)
+# Plot Min Day Value 
+plot(min_day_inflammation)
+```
