@@ -17,14 +17,14 @@ data01 <- read.csv("data/data/inflammation-01.csv", header = FALSE, sep = ',')
 
 ## Manipulate Data: Class & Dimensions
 
-```{r data01}
+```{r}
 # Data Type 
 class(data01)
 # Data Dimensions
 dim(data01)
 ```
 ## Manipulate Data: Extraction 
-```{r data01}
+```{r}
 # First Ten Days, First Four Patients
 data01[c(1:4),c(1:10)]
 ```
@@ -36,7 +36,7 @@ data01[c(5:10),c(1:10)]
 
 ## Manipulate Data: Column Statistics and Numeric Output
 
-```{r data01}
+```{r}
 # First Patient, All Days
 patient_1 <- data01[1, ]
 # Max inflammation for Patient 1
@@ -55,7 +55,7 @@ mean(as.numeric(data01[1, ]))
 
 ## Average Patient & Day Plots
 
-```{r data01, echo=FALSE}
+```{r, echo=FALSE}
 # Create Avg. Patient Value 
 avg_patient_inflammation <- apply(data01,1,mean)
 # Create Avg. Day Value
@@ -66,7 +66,7 @@ plot(avg_day_inflammation)
 
 ## Max Day Plot 
 
-```{r data01, echo=FALSE}
+```{r, echo=FALSE}
 # Create Max Day Value 
 max_day_inflammation <- apply(data01,2,max)
 # Plot Max Day Value 
@@ -75,7 +75,7 @@ plot(max_day_inflammation)
 
 ## Min Day Plot
 
-```{r, data01, echo=FALSE}
+```{r, echo=FALSE}
 # Create Min Day Value 
 min_day_inflammation <- apply(data01,2,min)
 # Plot Min Day Value 
